@@ -1,0 +1,26 @@
+header {
+    position: relative;
+
+    .header-search-box {
+        position: absolute;
+        left: 200px;
+    }
+
+    #mectrl_user {
+        width: 40px;
+        height: 40px;
+        border: 1px solid;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 30px;
+        background: white;
+        color: #3874bb;
+        font-size: 30px;
+        text-shadow: 0 0 2px #676767;
+        box-shadow: 1px 1px 5px #5a5a5a;
+        cursor: pointer;
+    }
+}

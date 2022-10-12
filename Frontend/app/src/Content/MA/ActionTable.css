@@ -1,0 +1,60 @@
+.action-table {
+  width: 100%;
+  height: calc(100% - 10px);
+  overflow: auto;
+}
+
+.action-table table {
+  width: 100%;
+  border-spacing: 0;
+  overflow: auto;
+}
+
+.action-table table .no {
+  width: 50px;
+  text-align: center;
+}
+
+.action-table table .title {
+  width: 300px;
+  text-align: left;
+}
+
+.action-table table .status {
+  width: 150px;
+  text-align: left;
+}
+
+.action-table table .send-date {
+  width: 200px;
+  text-align: left;
+}
+
+.action-table table .send-count {
+  width: 200px;
+  text-align: right;
+}
+
+.action-table table thead tr {
+  background-color: #3874bb;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.action-table table thead tr th {
+  border: none;
+  font-weight: normal;
+  padding: 10px;
+}
+
+.action-table table tbody tr:nth-child(odd) {
+  background-color: #f3f8ff;
+}
+
+.action-table table tbody tr td {
+  border-bottom: 1px solid #ececec;
+  padding: 10px;
+}
+/*# sourceMappingURL=ActionTable.css.map */

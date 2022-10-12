@@ -1,0 +1,23 @@
+.add-customer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    .add-customer-content {
+        width: calc(50% - 50px);
+        min-width: 200px;
+        margin: 20px auto;
+        margin-bottom: 5px;
+        position: relative;
+
+        &-label-container {
+            color: #4a89dc;
+            font-size: 18px;
+            transform: scale(0.75);
+            position: absolute;
+            top: -20px;
+            left: -2px;
+        }
+    }
+}

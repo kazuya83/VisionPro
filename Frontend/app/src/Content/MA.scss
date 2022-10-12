@@ -1,0 +1,19 @@
+.ma-content {
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    padding: 30px;
+
+    &-header {
+        display: flex;
+        align-items: center;
+
+        &_left {
+            flex: 1;
+        }
+
+        &_right {
+            flex: 1;
+            text-align: right;
+        }
+    }
+}

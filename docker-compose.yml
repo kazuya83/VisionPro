@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  frontend:
+    build: ./frontend/
+    volumes:
+      - ./frontend/app:/app:cached
+    command: sh -c "npm start"
+    ports:
+      - "3000:3000"
+    container_name: frontend
+
+  backend:
+    build: ./backend/
+    ports:
+      - 8000:8000
+    container_name: backend
+    env_file: ./backend/app/.env
+    volumes:
+      - ./backend/app:/app
+    command: uvicorn index:app --reload --host 0.0.0.0 --port 8000
+
+  postgresql:
+    build: ./postgresql/
+    container_name: postgresql
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgresql/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: visionpro
+      POSTGRES_PASSWORD: pAssword
+    restart: always
+
+  admin:
+    build: ./admin/
+    container_name: admin
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./admin/app:/app
+    command: flask run --host=0.0.0.0 --port 5000

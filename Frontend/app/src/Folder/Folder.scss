@@ -1,0 +1,40 @@
+.folder-contaner {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d3cfcf;
+
+    &-header {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      background-color: #3874bb;
+      color: #fff;
+      font-size: 20px;
+      padding-left: 10px;
+      text-shadow: 0 0 3px #6b6969;
+      border-bottom: 1px solid #d3cfcf;
+    }
+
+    .folder-content {
+      height: calc(100% - 50px);
+      overflow-y: auto;
+
+      .folder {
+        height: 35px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #d3cfcf;
+        padding-left: 10px;
+        white-space: nowrap;
+        cursor: pointer;
+
+        &_selected {
+          background-color: #c4ceda;
+        }
+
+        &:hover {
+          background-color: #c4ceda;
+        }
+      }
+    }
+}

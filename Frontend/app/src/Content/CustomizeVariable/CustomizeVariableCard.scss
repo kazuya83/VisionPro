@@ -1,0 +1,131 @@
+.customize-variable-card-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .customize-variable-card {
+        width: 200px;
+        height: auto;
+        border: 1px solid silver;
+        box-shadow: 0 0 3px rgb(131, 131, 131);
+        margin: 20px;
+        padding: 15px;
+        border-radius: 10px;
+        position: relative;
+        padding-bottom: 130px;
+
+        &-no {
+            width: calc(100% - 10px);
+            height: 30px;
+            background-color: #d2e2f4;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        &-icon {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            text-align: center;
+            background-color: #d2e2f4;
+            padding: 5px;
+            border-radius: 10px;
+
+            img {
+                width: calc(100% - 100px);
+            }
+        }
+    }
+
+    .add-card {
+        background-color: #a6c2e3;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 0px;
+
+        img {
+            width: 70px;
+            height: 70px;
+            margin: 20px 0;
+        }
+
+        &:hover {
+            background-color: #5c8ec8;
+        }
+    }
+
+    .modal-container {
+        .modal-warapper {
+            .modal-content {
+                .add-modal-header {
+                    width: calc(100% - 100px);
+                    margin: 0px auto;
+                    color: #999;
+                    font-size: 18px;
+                }
+
+                .add-modal-row {
+                    width: calc(100% - 100px);
+                    margin: 50px auto;
+
+                    &:first-child {
+                        margin-top: 20px;
+                    }
+
+                    &.attribute-type-card-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-top: 0;
+
+                        .attribute-type-card {
+                            background-color: #a6c2e3;
+                            color: #fff;
+                            width: 150px;
+                            height: 150px;
+                            padding: 15px;
+                            margin: 20px;
+                            border-radius: 10px;
+                            cursor: pointer;
+                            text-align: center;
+
+                            img {
+                                width: 100px;
+                                height: 100px;
+                            }
+
+                            &-label {
+                                font-size: 20px;
+                                height: 50px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
+                            &_selected {
+                                background-color: #5c8ec8;
+                                font-weight: bold;
+                            }
+
+                            &:hover {
+                                background-color: #5c8ec8;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+
+                .master-data-select {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

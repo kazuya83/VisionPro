@@ -1,0 +1,68 @@
+.action-table {
+    width: 100%;
+    height: calc(100% - 10px);
+    overflow: auto;
+
+    table {
+        // table-layout: fixed;
+        width: 100%;
+        border-spacing: 0;
+        overflow: auto;
+
+        .no {
+            width: 50px;
+            text-align: center;
+        }
+
+        .title {
+            width: 300px;
+            text-align: left;
+        }
+
+        .status {
+            width: 150px;
+            text-align: left;
+        }
+
+        .send-date {
+            width: 200px;
+            text-align: left;
+        }
+
+        .send-count {
+            width: 200px;
+            text-align: right;
+        }
+
+        thead {
+            tr {
+                background-color: #3874bb;
+                color: #fff;
+                position: sticky;
+                top: 0;
+
+                th {
+                    border: none;
+                    font-weight: normal;
+                    padding: 10px;
+                    
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                
+                &:nth-child(odd) {
+                    background-color: #f3f8ff;
+                }
+
+                
+                td {
+                    border-bottom: 1px solid #ececec;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,126 @@
+.input-container {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.input-container input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  -webkit-appearance: none;
+  display: block;
+  background: none;
+  color: #636363;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #757575;
+}
+
+.input-container input:focus {
+  outline: none;
+}
+
+.input-container input:focus ~ label {
+  top: -20px;
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+  left: -2px;
+  color: #4a89dc;
+}
+
+.input-container input.used ~ label {
+  top: -20px;
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+  left: -2px;
+  color: #4a89dc;
+}
+
+.input-container select {
+  margin-top: 10px;
+  margin-right: 15px;
+  height: 30px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid;
+}
+
+.input-container label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.input-date-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.input-date-container .input-container {
+  position: relative;
+}
+
+.input-date-container .input-container.year {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+.input-date-container .input-container.month {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.input-date-container .input-container.day {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.input-date-container .input-container input {
+  text-align: right;
+  padding-right: 30px;
+}
+
+.input-date-container .input-container input:focus + .hidden-label {
+  display: block;
+}
+
+.input-date-container .input-container span {
+  color: #999;
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+
+.input-date-container .input-container span.hidden-label {
+  display: none;
+}
+
+.input-date-container .input-container .alert {
+  position: absolute;
+  top: 45px;
+  font-size: 12px;
+  width: calc(100% - 50px);
+  padding: 5px;
+  left: 5px;
+  z-index: 3;
+  -webkit-box-shadow: 0 1px 2px #959595;
+          box-shadow: 0 1px 2px #959595;
+  background-color: #fbecec;
+  color: #fa6f6f;
+}
+/*# sourceMappingURL=input.css.map */
