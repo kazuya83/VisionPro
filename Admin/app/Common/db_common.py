@@ -28,3 +28,10 @@ def execute_sql(sql, database_name=None) -> None:
     cursor.execute(sql)
     con.commit()
     con.close()
+
+def execute_sql_no_transaction(sql, database_name=None) -> None:
+    con = get_db_connection(database_name)
+    con.autocommit = True
+    cursor = con.cursor()
+    cursor.execute(sql)
+    con.close() 
