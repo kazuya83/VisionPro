@@ -1,0 +1,65 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+header {
+  height: 70px;
+  width: 100%;
+  background-color: #bed4f5;
+  display: flex;
+  align-items: center;
+}
+header .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+  background-color: #5555d1;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #7c7c7c;
+}
+
+.content {
+  display: flex;
+  height: calc(100% - 70px);
+}
+.content .main-content {
+  flex: 1;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+}
+.content .main-content .corporate-row {
+  display: flex;
+  cursor: pointer;
+}
+.content .main-content .corporate-row-id {
+  width: 100px;
+  padding: 10px 5px;
+}
+.content .main-content .corporate-row-unique-name {
+  width: 300px;
+  padding: 10px 5px;
+}
+.content .main-content .corporate-row-name {
+  width: 300px;
+  padding: 10px 5px;
+}
+.content .main-content .corporate-row-db-name {
+  width: 300px;
+  padding: 10px 5px;
+}
+.content .main-content .corporate-row-header {
+  display: flex;
+  background-color: #7373fc;
+  color: #fff;
+  font-weight: bold;
+}
+.content .log-content {
+  width: 300px;
+  height: 100%;
+  background-color: #000;
+}/*# sourceMappingURL=main.css.map */

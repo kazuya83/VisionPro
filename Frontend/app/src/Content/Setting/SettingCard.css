@@ -1,0 +1,85 @@
+.setting-card {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  -webkit-box-shadow: 3px 3px 7px #696767;
+          box-shadow: 3px 3px 7px #696767;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: #b9cee6;
+  -webkit-transition: all 300ms 0s ease;
+  transition: all 300ms 0s ease;
+  position: relative;
+  margin: 20px;
+}
+
+.setting-card:hover {
+  background-color: #3874bb;
+}
+
+.setting-card:hover .setting-card-icon {
+  height: 10px;
+  display: inline;
+}
+
+.setting-card:hover .setting-card-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+.setting-card:hover .setting-card-title {
+  display: inline;
+  position: absolute;
+  font-size: 20px;
+  top: 8px;
+  left: 50px;
+}
+
+.setting-card:hover .setting-card-description {
+  display: block;
+}
+
+.setting-card-icon {
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.setting-card-icon img {
+  width: 100px;
+  height: 100px;
+}
+
+.setting-card-title {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.setting-card-description {
+  font-size: 18px;
+  color: #fff;
+  display: none;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=SettingCard.css.map */

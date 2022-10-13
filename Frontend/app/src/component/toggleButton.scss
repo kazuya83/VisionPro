@@ -1,0 +1,47 @@
+$toggle_width: 60px;
+$toggle_height: 30px;
+
+.toggle-button {
+    width: $toggle_width;
+    height: $toggle_height;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 20px;
+    padding-left: 3px;
+    padding-top: 2px;
+    cursor: pointer;
+    background-color: rgb(233, 233, 233);
+    margin: auto;
+    position: relative;
+    transition: all 300ms 0s ease;
+    
+    &-container {
+        width: $toggle_width + 10px;
+        text-align: center !important;
+    }
+
+    &-checked {
+        background-color: #54e900;
+    }
+    
+    &-label {
+        font-size: 12px;
+    }
+
+    &-ball {
+        width: $toggle_height - 2px;
+        height: $toggle_height - 2px;
+        border-radius: 50%;
+        box-shadow: 0 0 5px darkgray;
+        background-color: #fff;
+        position: absolute;
+        transition: all 300ms 0s ease;
+
+        &-checked {
+            right: 1px;
+        }
+
+        &-not-checked {
+            left: 1px;
+        }
+    }
+}

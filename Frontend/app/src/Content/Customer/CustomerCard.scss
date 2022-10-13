@@ -1,0 +1,95 @@
+.customer-card {
+    width: 400px;
+    height: 210px;   
+    margin: 20px;
+    margin-bottom: 50px;
+    position: relative;
+    padding-top: 40px;
+    box-shadow: 3px 3px 7px #696767;
+    border-radius: 5px;
+    cursor: pointer;
+
+    .customer-id {
+        width: 100px;
+        height: 35px;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        color: #fff;
+        border-radius: 3px;
+        box-shadow: 0px 0px 3px #8a8a8a;
+        text-shadow: 0 0 5px #282828;
+        background-color: #7e7e7e;
+    }
+
+    .customer-info-container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        
+        &_left {
+            flex: 1;
+        }
+
+        &_right {
+            flex: 2;
+        }
+    }
+
+    .customer-common-item {
+        padding-top: 10px;
+        padding-left: 20px;
+        height: 25px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .customer-icon {
+        width: 120px;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 20px;
+        bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 3px #8a8a8a;
+        background-color: #7e7e7e;
+
+        img {
+            width: 65px;
+            height: 65px;
+            margin: 10px;
+        }
+
+        .customer-name {
+            text-align: center;
+            width: 100%;
+            color: #fff;
+            font-size: 20px;
+            text-shadow: 0 0 5px #282828;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+}
+
+.man {
+    background-color: #3874bb;
+}
+
+.woman {
+    background-color: #e27d7d;
+}
+
+.other {
+    background-color: #7e7e7e;
+}

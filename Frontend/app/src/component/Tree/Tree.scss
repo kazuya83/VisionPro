@@ -1,0 +1,56 @@
+$border-color: #ccc;
+
+.folder-title {
+    background-color: #5c8ec8;
+    height: 40px;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-bottom: -20px;
+    position: sticky;
+    top: 0px;
+    margin-bottom: 10px;
+}
+
+.folder {
+    position: relative;
+    
+
+    .folder-row {
+        display: flex;
+        position: relative;
+        cursor: pointer;
+        align-items: center;
+
+        &.parent-folder {
+            border-left: none;
+        }
+
+        img {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+            margin-left: 5px;
+        }
+
+        hr {
+            width: 10px;
+            margin: 0px;
+            padding: 0px;
+            margin-left: -5px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        &_selected {
+            background-color: #a5c2e3;
+        }
+    }
+
+    .children-folder {
+        margin-left: 25px;
+        position: relative;
+    }
+}

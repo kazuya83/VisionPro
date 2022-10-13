@@ -1,0 +1,80 @@
+.customer-table-container {
+  width: 100%;
+  height: calc(100% - 70px);
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.customer-table-container table.customer-table {
+  border-spacing: 0;
+  overflow: auto;
+}
+
+.customer-table-container table.customer-table thead {
+  background-color: #3874bb;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.customer-table-container table.customer-table thead th {
+  border: none;
+  font-weight: normal;
+  padding: 10px;
+}
+
+.customer-table-container table.customer-table tbody {
+  width: 100%;
+}
+
+.customer-table-container table.customer-table tbody tr:nth-child(odd) {
+  background-color: #f3f8ff;
+}
+
+.customer-table-container table.customer-table tbody tr td {
+  border-bottom: 1px solid #ececec;
+  padding: 10px;
+}
+
+.customer-table-container table.customer-table .no {
+  width: 50px;
+  text-align: center;
+}
+
+.customer-table-container table.customer-table .id {
+  width: 50px;
+  text-align: center;
+}
+
+.customer-table-container table.customer-table .name {
+  width: 250px;
+  text-align: left;
+}
+
+.customer-table-container table.customer-table .sex {
+  width: 100px;
+  text-align: left;
+}
+
+.customer-table-container table.customer-table .age {
+  width: 100px;
+  text-align: left;
+}
+
+.customer-table-container table.customer-table .prefecture {
+  width: 150px;
+  text-align: left;
+}
+
+.customer-table-container table.customer-table .pay-amount {
+  width: 200px;
+  text-align: right;
+}
+
+.customer-table-container table.customer-table .last-update-date {
+  width: 200px;
+  text-align: left;
+}
+/*# sourceMappingURL=CustomerTable.css.map */

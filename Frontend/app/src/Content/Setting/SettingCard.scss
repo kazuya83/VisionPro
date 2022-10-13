@@ -1,0 +1,71 @@
+.setting-card {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    box-shadow: 3px 3px 7px #696767;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: #b9cee6;
+    transition: all 300ms 0s ease;
+    position: relative;
+    margin: 20px; 
+
+    &:hover {
+        background-color: #3874bb;
+
+        .setting-card-icon {
+            height: 10px;
+            display: inline;
+
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .setting-card-title {
+            display: inline;
+            position: absolute;
+            font-size: 20px;
+            top: 8px;
+            left: 50px;
+        }
+
+        .setting-card-description {
+            display: block;
+        }
+    }
+
+    &-icon {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    &-title {
+        font-size: 22px;
+        font-weight: bold;
+        text-align: center;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &-description {
+        font-size: 18px;
+        color: #fff;
+        display: none;
+        margin-top: 10px;
+    }
+}

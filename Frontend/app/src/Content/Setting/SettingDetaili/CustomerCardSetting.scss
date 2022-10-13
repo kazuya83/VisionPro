@@ -1,0 +1,104 @@
+.customer-card-setting-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    &_left {
+        flex: 1;
+
+        .introduce {
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+
+        .arrow-under {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20px;
+            padding-right: 30px;
+
+            img {
+                width: 30px;
+                height: 30px;
+                transform:rotate(-90deg)
+            }
+        }
+    }
+
+    &_right {
+        flex: 1;
+
+        .customer-select-container {
+            margin-bottom: 35px;
+            position: relative;
+
+            label {
+                color: #4a89dc;
+                font-size: 18px;
+                transform: scale(0.75);
+                position: absolute;
+                top: -20px;
+                left: -2px;
+            }
+        }
+    }
+
+    .customer-card-setting {
+        .customer-common-item {
+            display: flex;
+            justify-content: center;
+            width: calc(100% - 35px);
+    
+            div:first-child {
+                width: 60px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+    
+            div:last-child {
+                flex: 1;
+                border: 2px solid #5c8ec8;
+                background-color: #e4f1ff;
+            }
+        }
+    
+        .customer-info-container_left {
+            .customer-common-item {
+                width: calc(100% - 20px);
+            }
+        }
+    
+        .customer-icon {
+            .customer-common-item {
+                border: 2px solid #5c8ec8;
+                background-color: #e4f1ff;
+
+                div:last-child {
+                    color: #000;
+                }
+            }
+        }
+    }
+
+    .customer-icon {
+        .customer-common-item {
+            position: absolute;
+            bottom: 5px;
+            padding: 0;
+
+            div:last-child {
+                border: none;
+                background-color: none;
+                display: flex;
+                justify-content: center;
+                position: relative;
+                left: 0px;
+                right: 0px;
+                bottom: 3px;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+$no_width: 50px;
+$id_width: 50px;
+$name_name: 250px;
+$sex_width: 100px;
+$age_width: 100px;
+$prefecture_width: 150px;
+$pay_amount_width: 200px;
+$last_update_date: 200px;
+
+.customer-table-container {
+    width: 100%;
+    height: calc(100% - 70px);
+    margin-top: 20px;
+    overflow: auto;
+
+    table {
+        &.customer-table {
+            //width: auto;
+            // width: $no_width + $id_width + $name_name + $sex_width + $age_width + $prefecture_width + $pay_amount_width + $last_update_date;
+            border-spacing: 0;
+            overflow: auto;
+    
+            thead {
+                background-color: #3874bb;
+                color: #fff;
+                position: sticky;
+                top: 0;
+                width: 100%;
+    
+                th {
+                    border: none;
+                    font-weight: normal;
+                    padding: 10px;
+                }
+            }
+    
+            tbody {
+                width: 100%;
+                tr {
+                    
+                    &:nth-child(odd) {
+                        background-color: #f3f8ff;
+                    }
+    
+                    
+                    td {
+                        border-bottom: 1px solid #ececec;
+                        padding: 10px;
+                    }
+                }
+            }
+
+            .no {
+                width: $no_width;
+                // min-width: $no_width;
+                text-align: center;
+            }
+
+            .id {
+                width: $id_width;
+                // min-width: $id_width;
+                text-align: center;
+            }
+
+            .name {
+                width: $name_name;
+                // min-width: $name_name;
+                text-align: left;
+            }
+
+            .sex {
+                width: $sex_width;
+                // min-width: $sex_width;
+                text-align: left;
+            }
+
+            .age {
+                width: $age_width;
+                // min-width: $age_width;
+                text-align: left;
+            }
+
+            .prefecture {
+                width: $prefecture_width;
+                // min-width: $prefecture_width;
+                text-align: left;
+            }
+
+            .pay-amount {
+                width: $pay_amount_width;
+                // min-width: $pay_amount_width;
+                text-align: right;
+            }
+
+            .last-update-date {
+                width: $last_update_date;
+                // min-width: $last_update_date;
+                text-align: left;
+            }
+        }
+    }
+}
+

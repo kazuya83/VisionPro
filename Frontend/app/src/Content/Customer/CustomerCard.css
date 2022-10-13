@@ -1,0 +1,118 @@
+.customer-card {
+  width: 400px;
+  height: 210px;
+  margin: 20px;
+  margin-bottom: 50px;
+  position: relative;
+  padding-top: 40px;
+  -webkit-box-shadow: 3px 3px 7px #696767;
+          box-shadow: 3px 3px 7px #696767;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.customer-card .customer-id {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 10px;
+  color: #fff;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 3px #8a8a8a;
+          box-shadow: 0px 0px 3px #8a8a8a;
+  text-shadow: 0 0 5px #282828;
+  background-color: #7e7e7e;
+}
+
+.customer-card .customer-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.customer-card .customer-info-container_left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.customer-card .customer-info-container_right {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.customer-card .customer-common-item {
+  padding-top: 10px;
+  padding-left: 20px;
+  height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.customer-card .customer-icon {
+  width: 120px;
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 3px #8a8a8a;
+          box-shadow: 0px 0px 3px #8a8a8a;
+  background-color: #7e7e7e;
+}
+
+.customer-card .customer-icon img {
+  width: 65px;
+  height: 65px;
+  margin: 10px;
+}
+
+.customer-card .customer-icon .customer-name {
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-size: 20px;
+  text-shadow: 0 0 5px #282828;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.man {
+  background-color: #3874bb;
+}
+
+.woman {
+  background-color: #e27d7d;
+}
+
+.other {
+  background-color: #7e7e7e;
+}
+/*# sourceMappingURL=CustomerCard.css.map */

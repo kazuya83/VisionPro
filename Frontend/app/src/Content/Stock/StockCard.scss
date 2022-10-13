@@ -1,0 +1,59 @@
+.stock-card {
+    width: 350px;
+    height: 200px;
+    box-shadow: 3px 3px 7px #696767;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+
+    &-header {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e8e8e8;
+
+        .id {
+            margin-right: 10px;
+            margin-bottom: 3px;
+            font-size: 15px;
+        }
+
+        .item-name {
+            font-size: 20px;
+        }
+    }
+
+    &-content {
+        display: flex;
+
+        .item-image {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #e8e8e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+    
+            img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        .stock-card-description {
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+
+            .stock-count {
+                font-size: 40px;
+                text-align: center;
+                flex: 1;
+                width: 100%;
+                position: relative;
+                bottom: 15px;
+            }
+        }
+    }
+}

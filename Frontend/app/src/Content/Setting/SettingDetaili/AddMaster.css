@@ -1,0 +1,9 @@
+.add-master-container {
+  padding: 30px;
+  width: calc(100% - 60px);
+}
+
+.add-master-container div {
+  margin: 30px 0;
+}
+/*# sourceMappingURL=AddMaster.css.map */

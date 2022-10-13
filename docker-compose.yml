@@ -1,0 +1,59 @@
+version: '3.9'
+
+services:
+  frontend:
+    build: ./frontend/
+    ports:
+      - "3000:3000"
+    container_name: frontend
+    volumes:
+      - ./frontend/app:/app:cached
+    command: sh -c "npm install @emotion/styled --save && npm start"
+
+  backend:
+    build: ./backend/
+    ports:
+      - 8000:8000
+    container_name: backend
+    env_file: ./backend/app/.env
+    volumes:
+      - ./backend/app:/app
+    command: uvicorn index:app --reload --host 0.0.0.0 --port 8000
+
+  admin:
+    build: ./admin/
+    container_name: admin
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./admin/app:/app:cached
+    command: flask run --host=0.0.0.0
+
+  postgresql:
+    build: ./postgresql/
+    container_name: postgresql
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgresql/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: visionpro
+      POSTGRES_PASSWORD: pAssword
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    ports:
+        - 8888:80
+    volumes:
+        - pgadmin4_volume:/var/lib/pgadmin
+    environment:
+        PGADMIN_DEFAULT_EMAIL: kzy83ishi15@gmail.com
+        PGADMIN_DEFAULT_PASSWORD: pAssword
+    depends_on:
+      - postgresql
+
+volumes:
+  pgadmin4_volume:
+    external: true

@@ -1,0 +1,31 @@
+.toggle-container {
+    display: flex;
+    
+    .toggle {
+        width: 100px;
+        margin-right: 3px;
+        background-color: #5c8ec8;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+            background-color: #436996;
+            font-weight: bold;
+        }
+
+        &:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        &:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        &_selected {
+            background-color: #436996;
+            font-weight: bold;
+        }
+    }
+}

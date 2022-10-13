@@ -1,0 +1,30 @@
+.add-customer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.add-customer-container .add-customer-content {
+  width: calc(50% - 50px);
+  min-width: 200px;
+  margin: 20px auto;
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.add-customer-container .add-customer-content-label-container {
+  color: #4a89dc;
+  font-size: 18px;
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+  position: absolute;
+  top: -20px;
+  left: -2px;
+}
+/*# sourceMappingURL=AddCustomer.css.map */

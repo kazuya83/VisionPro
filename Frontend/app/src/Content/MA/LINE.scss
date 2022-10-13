@@ -1,0 +1,15 @@
+.line-content {
+    width: 100%;
+    height: calc(100% - 45px);
+    display: flex;
+    padding-top: 15px;
+
+    .left-content {
+        width: 250px;
+        margin-right: 20px;
+    }
+
+    .right-content {
+        flex: 1;
+    }
+}
