@@ -5,7 +5,7 @@ sudo service docker start
 
 # docker展開
 docker volume create pgadmin4_volume<br/>
-docker-compose up -d
+docker-compose up
 
 # postgresql接続
 psql -U visionpro
