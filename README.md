@@ -2,15 +2,17 @@ DBからプログラムまで全てをコンテナ化しているため、docker
 
 # 前提条件
 dockerが起動していること<br/>
-dockerが起動していない場合,Docker Desktopを起動してdockerが起動するのを待つ Or</br>
+dockerが起動していない場合,Docker Desktopを起動してdockerが起動するのを待つ OR</br>
 sudo service docker start
+```sh
+sudo service docker start
+```
 
-# docker展開
-docker volume create pgadmin4_volume<br/>
+# Docker展開
+```sh
+docker volume create pgadmin4_volume
 docker-compose up
-
-# postgresql接続
-psql -U visionpro
+```
 
 # backend URL
 http://localhost:8000
