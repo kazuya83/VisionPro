@@ -15,7 +15,7 @@ http://localhost:8000
 
 # fronend URL
 http://localhost:3000<br/>
-※３〜５分ほどサーバが立ち上がり
+※３〜５分ほどサーバが立ち上がります
 
 # admin URL
 http://localhost:5000
