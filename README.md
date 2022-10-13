@@ -1,4 +1,5 @@
 # docker展開
+docker volume create pgadmin4_volume
 docker-compose up -d
 
 # postgresql接続
