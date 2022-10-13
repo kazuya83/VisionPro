@@ -1,4 +1,5 @@
 const CORPORATE_LIST_ENDPOINT = 'get_corporate_list';
+const CREATE_CORPORATE_ENDPOINT = 'create_corporate';
 
 const getCorporateList = async () => {
     const param = {};
@@ -40,6 +41,44 @@ const generateCorporateListRowElement = (id, uniqueName, name, dbName) => {
     return row;
 };
 
+const showCreateCorporateModal = () => {
+    const MODAL_NAME = '新規企業作成';
+    const contentElem = document.createElement('div');
+    contentElem.className = '';
+
+    const corporateUniqueNameText = document.createElement('input');
+    corporateUniqueNameText.id = 'corporate_unique_id';
+    corporateUniqueNameText.placeholder = '企業UniqueID';
+    contentElem.appendChild(corporateUniqueNameText);
+
+    const corporateNameText = document.createElement('input');
+    corporateNameText.id = 'corporate_name';
+    corporateNameText.placeholder = '企業名';
+    contentElem.appendChild(corporateNameText);
+
+    const footerElem = document.createElement('div');
+    footerElem.className = '';
+    const updateBtn = document.createElement('button');
+    updateBtn.textContent = '登録';
+    updateBtn.addEventListener('click', async () => {
+        if (IsEmpty(corporateUniqueNameText.value) || IsEmpty(corporateNameText.value)) {
+            alert('入力は必須です。/nすべて入力してください。');
+            return;
+        }
+        console.log(corporateUniqueNameText.value);
+        console.log(corporateNameText.value);
+        const res = await postConnect({'corporate_unique_name': corporateUniqueNameText.value, 'corporate_name': corporateNameText.value}, CREATE_CORPORATE_ENDPOINT);
+        console.log(res);
+    });
+
+    footerElem.appendChild(updateBtn);
+
+    showModal(MODAL_NAME, contentElem, footerElem, '600px', 'calc(100% - 200px)');
+};
+
 window.addEventListener('DOMContentLoaded', () => {
     setCorporateList();
+    document.querySelector('#btnAddCorporate').addEventListener('click', () => {
+        showCreateCorporateModal();
+    });
 })

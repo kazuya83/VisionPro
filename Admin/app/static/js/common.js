@@ -33,3 +33,7 @@ function generateDiv(id, className, textContent) {
     div.textContent = textContent;
     return div;
 }
+
+function IsEmpty(value) {
+    return value === null || value === undefined || value.length === 0;
+}
