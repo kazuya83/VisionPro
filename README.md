@@ -12,7 +12,7 @@ docker-compose up
 # postgresql接続
 psql -U visionpro
 
-# fastapi URL
+# backend URL
 http://localhost:8000
 
 # fronend URL
