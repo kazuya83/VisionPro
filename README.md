@@ -14,7 +14,8 @@ psql -U visionpro
 http://localhost:8000
 
 # fronend URL
-http://localhost:3000
+http://localhost:3000<br/>
+※３〜５分ほどサーバが立ち上がり
 
 # admin URL
 http://localhost:5000
