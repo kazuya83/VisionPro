@@ -3,7 +3,6 @@ DBからプログラムまで全てをコンテナ化しているため、docker
 # 前提条件
 dockerが起動していること<br/>
 dockerが起動していない場合,Docker Desktopを起動してdockerが起動するのを待つ OR</br>
-sudo service docker start
 ```sh
 sudo service docker start
 ```
