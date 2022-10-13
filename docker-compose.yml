@@ -49,7 +49,7 @@ services:
     volumes:
         - pgadmin4_volume:/var/lib/pgadmin
     environment:
-        PGADMIN_DEFAULT_EMAIL: kzy83ishi15@gmail.com
+        PGADMIN_DEFAULT_EMAIL: root
         PGADMIN_DEFAULT_PASSWORD: pAssword
     depends_on:
       - postgresql
