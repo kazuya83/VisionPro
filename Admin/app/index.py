@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 import global_value as g
 from UseCases.corporate_list_usecase import CorporateListUseCase
+from DBUpgrade.create_db import CreateDB
 
 app = Flask(__name__)
 
@@ -28,3 +29,18 @@ def get_corporate_list():
   result = CorporateListUseCase.get_corporate_list()
   res = { 'corporate_list' : result }
   return jsonify(res)
+
+@app.route("/create_corporate", methods=["POST"])
+def create_corporate():
+  req = request.form
+  corporate_name = req['corporate_name']
+  corporate_unique_name = req['corporate_unique_name']
+  print(corporate_name)
+
+  CreateDB(corporate_name, corporate_unique_name).create_corporate()
+
+  res = {'corporate_name': corporate_name }
+  return jsonify(res)
+
+if __name__ == '__main__':
+    app.run(debug=True)
