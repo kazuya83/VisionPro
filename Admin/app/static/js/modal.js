@@ -33,9 +33,8 @@ const createModal = (title, modalContentElem, modalFooterElem, modalWidth, modal
     const modalTitle = document.createElement('div');
     modalTitle.textContent = title;
     modalTitle.style.fontSize = '30px';
-    modalTitle.style.fontWeight = '800';
-    modalTitle.style.padding = '15px 40px';
-    modalTitle.style.textShadow = '2px 2px #959393';
+    modalTitle.style.padding = '15px 20px';
+    modalTitle.style.textShadow = '2px 1px #959393';
     modal.appendChild(modalTitle);
     modal.appendChild(modalContentElem);
     modalFooterElem.style.position = 'absolute';
