@@ -1,38 +1,37 @@
-import Common.db_common as DB
-from DBUpgrade.table_name_list import table
+import psycopg2
+import psycopg2.extras
+import global_value as g
 
-class DBUpgradeAttach:
-  def __init__(self, table_name:str, is_attach:bool):
-      self.table_name = table_name
-      self.is_attach = is_attach
+def get_db_connection(database_name=None):
+    con = psycopg2.connect(host=g.DB_HOST,
+                            database=g.DB_DATABASE if database_name is None else database_name,
+                            user=g.DB_USER,
+                            password=g.DB_PASS)
+    return con
 
+def execute_select_sql(sql, database_name=None):
+    con = get_db_connection(database_name)
+    cursor = con.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    dict_result = []
+    for row in results:
+        dict_result.append(dict(row))
+    con.commit()
+    cursor.close()
+    con.close()
+    return dict_result
 
-def get_db_upgrade_attach(corporate_id:int) -> list:
-  db_name = f'crm_{str(corporate_id).zfill(8)}'
-  table_attach_list = []
+def execute_sql(sql, database_name=None) -> None:
+    con = get_db_connection(database_name)
+    cursor = con.cursor()
+    cursor.execute(sql)
+    con.commit()
+    con.close()
 
-  result = []
-  try:
-    sql = f'''
-    SELECT
-      table_name
-    FROM
-      {table().T_CREATE_TABLE_LIST}
-    WHERE
-      is_deleted = '0'
-    '''
-    result = DB.execute_select_sql(sql, db_name)
-  except Exception as e:
-    print(e)
-
-  for table_name in table().get_table_list():
-    table_attach = { 'table_name': table_name, "is_attach": False }
-    for row in result:
-      if table_name.lower() == row['table_name'].lower():
-        table_attach['is_attach'] = True
-    table_attach_list.append(table_attach)
-  return table_attach_list
-    
-def add_db_upgrade_attach(db_name:str, table_name:str) -> None:
-  sql = f"INSERT INTO {table().T_CREATE_TABLE_LIST}(table_name) VALUES('{table_name}');"
-  DB.execute_sql(sql, db_name)
+def execute_sql_no_transaction(sql, database_name=None) -> None:
+    con = get_db_connection(database_name)
+    con.autocommit = True
+    cursor = con.cursor()
+    cursor.execute(sql)
+    con.close() 
