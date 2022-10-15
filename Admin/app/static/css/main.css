@@ -4,6 +4,23 @@ html, body {
   overflow: hidden;
 }
 
+button {
+  border: none;
+  box-shadow: 0 0 3px #7c7c7c;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 80px;
+  font-size: 15px;
+}
+button:hover {
+  box-shadow: none;
+}
+button.btn-primary {
+  background-color: #a5cfea;
+}
+
 header {
   height: 70px;
   width: 100%;
@@ -21,6 +38,10 @@ header .title {
   border-radius: 3px;
   box-shadow: 0 0 3px #7c7c7c;
 }
+header .add-corporate {
+  position: absolute;
+  right: 50px;
+}
 
 .content {
   display: flex;
@@ -28,7 +49,7 @@ header .title {
 }
 .content .main-content {
   flex: 1;
-  height: 100%;
+  height: calc(100% - 70px);
   padding: 20px;
   overflow-y: auto;
 }
@@ -36,8 +57,18 @@ header .title {
   display: flex;
   cursor: pointer;
 }
-.content .main-content .corporate-row-id {
+.content .main-content .corporate-row:nth-child(odd) {
+  background-color: #e7e7f9;
+}
+.content .main-content .corporate-row:hover {
+  background-color: #fff693;
+}
+.content .main-content .corporate-row-no {
   width: 100px;
+  padding: 10px 5px;
+}
+.content .main-content .corporate-row-id {
+  width: 150px;
   padding: 10px 5px;
 }
 .content .main-content .corporate-row-unique-name {
@@ -52,14 +83,31 @@ header .title {
   width: 300px;
   padding: 10px 5px;
 }
+.content .main-content .corporate-row-db-upgrade {
+  width: 150px;
+  padding: 10px 5px;
+  text-align: center;
+}
+.content .main-content .corporate-row .corporate-row-db-upgrade {
+  color: #1212e9;
+}
+.content .main-content .corporate-row .corporate-row-db-upgrade:hover {
+  font-weight: bold;
+}
 .content .main-content .corporate-row-header {
   display: flex;
   background-color: #7373fc;
   color: #fff;
   font-weight: bold;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 .content .log-content {
   width: 300px;
   height: 100%;
   background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  overflow-y: auto;
 }/*# sourceMappingURL=main.css.map */
