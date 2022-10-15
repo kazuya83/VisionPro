@@ -7,7 +7,7 @@ class CreateDB:
         self.corporate_name = corporate_name
         self.corporate_id = corporate_id
 
-    def create_corporate(self):
+    def create_corporate(self) -> int:
         new_corporate_id = self.generate_corporate_id()
         sql = f'''
         INSERT INTO T_Corporate(corporate_id, corporate_unique_name, corporate_name) VALUES({new_corporate_id}, '{self.corporate_unique_name}', '{self.corporate_name}')
@@ -15,6 +15,7 @@ class CreateDB:
         DB.execute_sql(sql, 'domain')
         self.corporate_id = new_corporate_id
         self.create_corporate_db()
+        return self.corporate_id
 
     def create_corporate_db(self):
         db_name = f'crm_{str(self.corporate_id).zfill(8)}'
