@@ -31,9 +31,9 @@ class AddCustomer extends Component {
     }
 
     async getAttributeList() {
-        const data = await CommonFunc.GetData('GetCustomerAttributeList');
+        const res = await CommonFunc.PostData('get_attribute_variable_list', CommonFunc.GetCommonRequestParam());
         this.setState({
-            attributeList: data ?? []
+            attributeList: res.data ?? []
         });
     }
 
@@ -41,8 +41,10 @@ class AddCustomer extends Component {
         const masterDataDictionary = {};
         for (let i = 0; i < masterIdList.length; i++) {
             const masterId = masterIdList[i];
-            const data = await CommonFunc.GetData(`Master_Data_List?master_id=${masterId}`);
-            masterDataDictionary[masterId] = data;
+            const param = CommonFunc.GetCommonRequestParam();
+            param['master_id'] = masterId;
+            const res = await CommonFunc.PostData('get_master_data_list', param);
+            masterDataDictionary[masterId] = res.data;
         }
         this.setState({
             masterDataDictionary: masterDataDictionary
@@ -51,10 +53,10 @@ class AddCustomer extends Component {
     }
 
     async renderContent() {
-        const data = await CommonFunc.GetData('GetCustomerAttributeList');
+        const res = await CommonFunc.PostData('get_attribute_variable_list', CommonFunc.GetCommonRequestParam());
         return (
             <>
-            {data.map((attribute) => {
+            {res.data.map((attribute) => {
                 return (
                     <div key={attribute.attribute_id}>
                         <label>{attribute.attribute_name}</label>
