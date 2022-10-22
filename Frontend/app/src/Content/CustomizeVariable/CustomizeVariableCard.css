@@ -1,24 +1,18 @@
 .customize-variable-card-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
 .customize-variable-card-list .customize-variable-card {
   width: 200px;
   height: auto;
   border: 1px solid silver;
-  -webkit-box-shadow: 0 0 3px #838383;
-          box-shadow: 0 0 3px #838383;
+  box-shadow: 0 0 3px rgb(131, 131, 131);
   margin: 20px;
   padding: 15px;
   border-radius: 10px;
   position: relative;
   padding-bottom: 130px;
 }
-
 .customize-variable-card-list .customize-variable-card-no {
   width: calc(100% - 10px);
   height: 30px;
@@ -26,16 +20,11 @@
   color: #fff;
   font-size: 18px;
   font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding-left: 10px;
   margin-bottom: 10px;
 }
-
 .customize-variable-card-list .customize-variable-card-icon {
   position: absolute;
   bottom: 10px;
@@ -46,62 +35,44 @@
   padding: 5px;
   border-radius: 10px;
 }
-
 .customize-variable-card-list .customize-variable-card-icon img {
   width: calc(100% - 100px);
 }
-
 .customize-variable-card-list .add-card {
   background-color: #a6c2e3;
   text-align: center;
   cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   padding-bottom: 0px;
 }
-
 .customize-variable-card-list .add-card img {
   width: 70px;
   height: 70px;
   margin: 20px 0;
 }
-
 .customize-variable-card-list .add-card:hover {
   background-color: #5c8ec8;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-header {
   width: calc(100% - 100px);
   margin: 0px auto;
   color: #999;
   font-size: 18px;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row {
   width: calc(100% - 100px);
   margin: 50px auto;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row:first-child {
   margin-top: 20px;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row.attribute-type-card-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-top: 0;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row.attribute-type-card-list .attribute-type-card {
   background-color: #a6c2e3;
   color: #fff;
@@ -113,37 +84,25 @@
   cursor: pointer;
   text-align: center;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row.attribute-type-card-list .attribute-type-card img {
   width: 100px;
   height: 100px;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row.attribute-type-card-list .attribute-type-card-label {
   font-size: 20px;
   height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row.attribute-type-card-list .attribute-type-card_selected {
   background-color: #5c8ec8;
   font-weight: bold;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .add-modal-row.attribute-type-card-list .attribute-type-card:hover {
   background-color: #5c8ec8;
   font-weight: bold;
 }
-
 .customize-variable-card-list .modal-container .modal-warapper .modal-content .master-data-select {
   margin-top: 5px;
-}
-/*# sourceMappingURL=CustomizeVariableCard.css.map */
+}/*# sourceMappingURL=CustomizeVariableCard.css.map */

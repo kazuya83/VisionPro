@@ -4,53 +4,37 @@
   border-radius: 4px;
   position: relative;
 }
-
 .search-box-container .search-icon-wrapper {
   padding: 0px 13px;
   height: 100%;
   position: absolute;
   pointer-events: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-      justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .search-box-container .search-input-wrapper {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.4375em;
   letter-spacing: 0.00938em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   cursor: text;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-      align-items: center;
+  align-items: center;
   color: inherit;
 }
-
 .search-box-container .search-input-wrapper input {
   padding: 8px 8px 8px calc(1em + 32px);
-  -webkit-transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   width: 150px;
   font: inherit;
   letter-spacing: inherit;
   color: currentcolor;
   border: 0px;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   background: none;
   height: 1.4375em;
   margin: 0px;
@@ -62,25 +46,16 @@
   -webkit-animation-duration: 10ms;
           animation-duration: 10ms;
 }
-
 .search-box-container .search-input-wrapper input:focus {
   outline: 0px;
   width: 250px;
 }
-
-.search-box-container .search-input-wrapper input::-webkit-input-placeholder {
+.search-box-container .search-input-wrapper input::-moz-placeholder {
   color: #436996;
 }
-
 .search-box-container .search-input-wrapper input:-ms-input-placeholder {
   color: #436996;
 }
-
-.search-box-container .search-input-wrapper input::-ms-input-placeholder {
-  color: #436996;
-}
-
 .search-box-container .search-input-wrapper input::placeholder {
   color: #436996;
-}
-/*# sourceMappingURL=SearchBox.css.map */
+}/*# sourceMappingURL=SearchBox.css.map */

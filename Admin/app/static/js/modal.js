@@ -36,6 +36,8 @@ const createModal = (title, modalContentElem, modalFooterElem, modalWidth, modal
     modalTitle.style.padding = '15px 20px';
     modalTitle.style.textShadow = '2px 1px #959393';
     modal.appendChild(modalTitle);
+    modalContentElem.style.height = 'calc(100% - 200px)';
+    modalContentElem.style.overflowY = 'auto';
     modal.appendChild(modalContentElem);
     modalFooterElem.style.position = 'absolute';
     modalFooterElem.style.bottom = '5px';

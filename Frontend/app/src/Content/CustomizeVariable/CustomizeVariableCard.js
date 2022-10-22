@@ -23,10 +23,11 @@ class CustomizeVariableCard extends Component {
     }
 
     async getMasterDataList() {
-        const retData = await CommonFunc.GetData('Master_List');
+        const res = await CommonFunc.PostData('get_master_list', CommonFunc.GetCommonRequestParam());
         this.setState({
-            masterDataList: retData
-        })
+            masterDataList: res.data
+        });
+        console.log(this.state.masterDataList);
     }
 
     convertDataTypeJp(typeId) {
@@ -66,6 +67,7 @@ class CustomizeVariableCard extends Component {
     }
 
     render() {
+        console.log(this.props.attribute.attribute_description);
         return (
             <div className="customize-variable-card">
                 <div className="customize-variable-card-no">
@@ -81,7 +83,7 @@ class CustomizeVariableCard extends Component {
 
                 <div>
                     <label>説明：</label>
-                    <label>{this.props.attribute.attribute_descripton}</label>
+                    <label>{this.props.attribute.attribute_description}</label>
                 </div>
 
                 <br/>

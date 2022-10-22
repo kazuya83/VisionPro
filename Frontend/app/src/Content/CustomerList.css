@@ -2,11 +2,8 @@
   width: calc(100% - 60px);
   height: calc(100% - 60px);
   padding: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .customer-list-content .left-content {
   width: 250px;
   margin-right: 20px;
@@ -15,42 +12,26 @@
   border: 1px solid #ccc;
   position: relative;
 }
-
 .customer-list-content .right-content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   width: 100%;
 }
-
 .customer-list-content .right-content .customer-content-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .customer-list-content .right-content .customer-content-header div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
 }
-
 .customer-list-content .right-content .customer-content-header div:last-child {
   text-align: right;
 }
-
 .customer-list-content .right-content .customer-content-header div:last-child button {
   margin: 0 10px;
 }
-
 .customer-list-content .right-content .customer-card-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-top: 20px;
   height: calc(100% - 50px);
   overflow: auto;
-}
-/*# sourceMappingURL=CustomerList.css.map */
+}/*# sourceMappingURL=CustomerList.css.map */

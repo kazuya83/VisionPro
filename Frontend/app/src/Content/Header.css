@@ -1,34 +1,43 @@
 header {
   position: relative;
 }
-
 header .header-search-box {
   position: absolute;
   left: 200px;
 }
-
+header #mectrl_corporate {
+  position: absolute;
+  right: 100px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  max-width: 150px;
+  background: white;
+  color: #3874bb;
+  font-size: 17px;
+  font-weight: bold;
+  text-shadow: 0 0 2px #676767;
+  box-shadow: 1px 1px 5px #5a5a5a;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 15px;
+}
 header #mectrl_user {
   width: 40px;
   height: 40px;
   border: 1px solid;
   border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   right: 30px;
   background: white;
   color: #3874bb;
   font-size: 30px;
   text-shadow: 0 0 2px #676767;
-  -webkit-box-shadow: 1px 1px 5px #5a5a5a;
-          box-shadow: 1px 1px 5px #5a5a5a;
+  box-shadow: 1px 1px 5px #5a5a5a;
   cursor: pointer;
-}
-/*# sourceMappingURL=Header.css.map */
+}/*# sourceMappingURL=Header.css.map */

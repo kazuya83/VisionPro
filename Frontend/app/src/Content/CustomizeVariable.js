@@ -32,7 +32,9 @@ class CustomizeVariable extends Component {
     }
 
     async getCustomerBasicAttributeList() {
-        const data = await CommonFunc.GetData('GetCustomerAttributeList');
+        const res = await CommonFunc.PostData('get_attribute_variable_list', CommonFunc.GetCommonRequestParam());
+        console.log(res);
+        const data = res.data;
         this.setState({
             basicAttributes: data ?? []
         })

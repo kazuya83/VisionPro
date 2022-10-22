@@ -3,13 +3,9 @@
   height: calc(100% - 60px);
   padding: 30px;
 }
-
 .customize-variable-content .customize-variable-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .customize-variable-content .customize-variable-header .customize-variable-category {
   background-color: #82acdc;
   color: #fff;
@@ -17,31 +13,23 @@
   width: 222px;
   height: 50px;
   font-size: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding-left: 10px;
   border-radius: 5px;
   cursor: pointer;
 }
-
 .customize-variable-content .customize-variable-header .customize-variable-category_selected {
   background-color: #5c8ec8;
   font-weight: bold;
 }
-
 .customize-variable-content .customize-variable-header .customize-variable-category:hover {
   background-color: #5c8ec8;
   font-weight: bold;
 }
-
 .customize-variable-content .customize-variable-body {
   width: 100%;
   margin-top: 20px;
   height: calc(100% - 70px);
   overflow: auto;
-}
-/*# sourceMappingURL=CustomizeVariable.css.map */
+}/*# sourceMappingURL=CustomizeVariable.css.map */

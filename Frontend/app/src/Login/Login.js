@@ -15,6 +15,7 @@ class Login extends Component {
         this.changeUserName = this.changeUserName.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.buttonClick = this.buttonClick.bind(this);
+        this.setLoginInfo = this.setLoginInfo.bind(this);
     }
 
     componentDidMount() {
@@ -33,11 +34,23 @@ class Login extends Component {
         this.password = password;
     }
 
-    buttonClick() {
-        CommonFunc.SetLocalStrage(Const.localStorage.CORPORATE_ID, this.corporateId);
-        CommonFunc.SetLocalStrage(Const.localStorage.USER_NAME, this.userName);
-        // location.reload();
+    async buttonClick() {
+        const param = { 'corporate_unique_name': this.corporateId, 'user_name': this.userName, 'password': this.password };
+        const res = await CommonFunc.PostData('Login', param);
+        if (res.status_code !== 200 || res.data === null) {
+            alert(res.message);
+            return;
+        }
+        this.setLoginInfo(res.data.corporate.corporate_id, res.data.corporate.corporate_name, res.data.corporate.corporate_unique_name, res.data.corporate_user.user_id, res.data.corporate_user.user_name);
         this.props.reRender();
+    }
+
+    setLoginInfo(corporateId, corporateName, corporateUniqueName, userId, userName) {
+        CommonFunc.SetLocalStrage(Const.localStorage.CORPORATE_ID, corporateId);
+        CommonFunc.SetLocalStrage(Const.localStorage.CORPORATE_NAME, corporateName);
+        CommonFunc.SetLocalStrage(Const.localStorage.CORPORATE_UNIQUE_NAME, corporateUniqueName);
+        CommonFunc.SetLocalStrage(Const.localStorage.USER_ID, userId);
+        CommonFunc.SetLocalStrage(Const.localStorage.USER_NAME, userName);
     }
     
     render() {

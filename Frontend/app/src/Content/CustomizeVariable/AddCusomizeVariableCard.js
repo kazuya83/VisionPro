@@ -18,7 +18,7 @@ class AddCustomizeVariableCard extends Component {
         ];
         this.state = {
             attributeName: '',
-            description: '',
+            attribute_description: '',
             dataType: -1,
             isShowMasterDataList: false,
             masterId: 0,
@@ -40,8 +40,8 @@ class AddCustomizeVariableCard extends Component {
         this.setState({ attributeName: attributeName });
     }
 
-    changeAttributeDescription(description) {
-        this.setState({ description: description });
+    changeAttributeDescription(attribute_description) {
+        this.setState({ attribute_description: attribute_description });
     }
 
     changeAttributeDataType(typeId) {
@@ -57,13 +57,21 @@ class AddCustomizeVariableCard extends Component {
     async addAttribute() {
         if (!this.validation()) { return; }
 
-        const retData = await CommonFunc.PostData('UpdateCustomerAttribute',{attribute_name: this.state.attributeName, attribute_description: this.state.description, attribute_data_type: this.state.dataType, master_id: this.state.masterId });
-        if (retData.status_code !== Const.STATUS_CODE.SUCCESS) {
+        const param = CommonFunc.GetCommonRequestParam();
+        param['attribute_name'] = this.state.attributeName;
+        param['attribute_description'] = this.state.attribute_description;
+        param['attribute_data_type'] = this.state.dataType;
+        param['master_id'] = this.state.masterId;
+        const res = await CommonFunc.PostData('add_attribute_variable', param);
+        console.log(res);
+        // const retData = await CommonFunc.PostData('UpdateCustomerAttribute',{attribute_name: this.state.attributeName, attribute_description: this.state.description, attribute_data_type: this.state.dataType, master_id: this.state.masterId });
+        if (res.status_code !== Const.STATUS_CODE.SUCCESS) {
+            alert(res.message);
             return false;
         }
         this.setState({
             attributeName: '',
-            description: '',
+            attribute_description: '',
             dataType: -1,
             isShowMasterDataList: false
         });
@@ -71,10 +79,10 @@ class AddCustomizeVariableCard extends Component {
     }
 
     async getMasterDataList() {
-        const retData = await CommonFunc.GetData('Master_List');
+        const res = await CommonFunc.PostData('get_master_list', CommonFunc.GetCommonRequestParam());
         this.setState({
-            masterDataList: retData
-        })
+            masterDataList: res.data
+        });
     }
 
     validation() {
@@ -92,7 +100,7 @@ class AddCustomizeVariableCard extends Component {
                 </div>
 
                 <div className="add-modal-row">
-                    <Input inputValue={this.state.description} placeholder="説明" changeInput={this.changeAttributeDescription} />
+                    <Input inputValue={this.state.attribute_description} placeholder="説明" changeInput={this.changeAttributeDescription} />
                 </div>
 
                 <div className="add-modal-header">データ型</div>

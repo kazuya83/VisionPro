@@ -2,6 +2,8 @@ ul.navigations {
     width: 100%;
     padding: 0;
     margin: 0;
+    height: calc(100% - 130px);
+    overflow-y: auto;
 
     li {
         width: calc(100% - 15px);

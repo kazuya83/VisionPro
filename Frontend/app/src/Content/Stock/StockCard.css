@@ -1,79 +1,51 @@
 .stock-card {
   width: 350px;
   height: 200px;
-  -webkit-box-shadow: 3px 3px 7px #696767;
-          box-shadow: 3px 3px 7px #696767;
+  box-shadow: 3px 3px 7px #696767;
   border-radius: 5px;
   margin: 20px;
   padding: 10px;
 }
-
 .stock-card-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   margin-bottom: 10px;
   border-bottom: 1px solid #e8e8e8;
 }
-
 .stock-card-header .id {
   margin-right: 10px;
   margin-bottom: 3px;
   font-size: 15px;
 }
-
 .stock-card-header .item-name {
   font-size: 20px;
 }
-
 .stock-card-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .stock-card-content .item-image {
   width: 150px;
   height: 150px;
   border: 1px solid #e8e8e8;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   margin-right: 20px;
 }
-
 .stock-card-content .item-image img {
   width: 140px;
   height: 140px;
 }
-
 .stock-card-content .stock-card-description {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  align-items: flex-end;
   width: 100%;
 }
-
 .stock-card-content .stock-card-description .stock-count {
   font-size: 40px;
   text-align: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   width: 100%;
   position: relative;
   bottom: 15px;
-}
-/*# sourceMappingURL=StockCard.css.map */
+}/*# sourceMappingURL=StockCard.css.map */

@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,cAAc,CAAC;EACX,KAAK,EAAE,iBAAiB;EACxB,MAAM,EAAE,iBAAiB;EACzB,OAAO,EAAE,IAAI;CAChB",
-    "sources": [
-        "Stock.scss"
-    ],
-    "names": [],
-    "file": "Stock.css"
-}
+{"version":3,"sources":["Stock.scss","Stock.css"],"names":[],"mappings":"AAAA;EACI,wBAAA;EACA,yBAAA;EACA,aAAA;ACCJ","file":"Stock.css"}

@@ -3,12 +3,8 @@
   height: 40px;
   color: #fff;
   font-size: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding-left: 10px;
   margin-bottom: -20px;
   position: -webkit-sticky;
@@ -20,29 +16,21 @@
 .folder {
   position: relative;
 }
-
 .folder .folder-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
   cursor: pointer;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .folder .folder-row.parent-folder {
   border-left: none;
 }
-
 .folder .folder-row img {
   width: 25px;
   height: 25px;
   margin-right: 10px;
   margin-left: 5px;
 }
-
 .folder .folder-row hr {
   width: 10px;
   margin: 0px;
@@ -51,13 +39,10 @@
   border: none;
   border-bottom: 1px solid #ccc;
 }
-
 .folder .folder-row_selected {
   background-color: #a5c2e3;
 }
-
 .folder .children-folder {
   margin-left: 25px;
   position: relative;
-}
-/*# sourceMappingURL=Tree.css.map */
+}/*# sourceMappingURL=Tree.css.map */

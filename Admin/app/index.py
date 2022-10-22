@@ -5,8 +5,10 @@ import os
 from dotenv import load_dotenv
 import global_value as g
 from UseCases.corporate_list_usecase import CorporateListUseCase
+from UseCases.navigation_list_usecase import NavigationListUseCase
 from DBUpgrade.create_db import CreateDB
 from DBUpgrade.db_upgrade import DBUpgrade
+from DBUpgrade.db_upgrade_domain import DBUpgradeDomain
 from DBUpgrade.table_name_list import table
 import DBUpgrade.db_upgrade_attach_info as db_upgrade_info
 import pprint
@@ -27,6 +29,16 @@ import Common.db_common as DB
 @app.route("/")
 def main():
   return render_template('main.html')
+
+@app.route('/corporate_setting')
+def corporate_setting():
+  corporate_id = request.args.get('corporate_id', 0)
+  corporate_name = request.args.get('corporate_name', '')
+  return render_template('corporate_setting.html', corporate_name=corporate_name, corporate_id=corporate_id)
+
+@app.route('/common_setting')
+def common_setting():
+  return render_template('common_setting.html')
 
 
 @app.route("/get_corporate_list", methods=["POST"])
@@ -51,17 +63,22 @@ def create_corporate():
 def create_corporate_db():
   req = request.form
   corporate_id = int(req['corporate_id'])
-  res = { 'status_code': 200, 'message': 'DB作成に成功しました', 'corporate_id': corporate_id, 'next_upgrade_num': 1 }
-  # 既に作成済みのエラーしか発生しない程
+  res = { 'status_code': 200, 'message': f'企業ID:{corporate_id} DB作成に成功しました', 'corporate_id': corporate_id, 'next_upgrade_num': 1 }
   try:
     CreateDB('', '', corporate_id).create_corporate_db()
   except Exception as e:
+    error_detail = str(e)
+    status_code = 500
+    if 'already exists' in str(e):
+      error_detail = 'DB作成重複エラー'
+      status_code = 400
     error_message = f'''
+    企業ID:{corporate_id}
     DB作成でエラーが発生しました
-    エラー詳細：{e}
+    エラー詳細：{error_detail}
     '''
-    res['status_code'] = 500
-    res['error_message'] = error_message
+    res['status_code'] = status_code
+    res['message'] = error_message
   return jsonify(res)
 
 @app.route('/db_upgrade', methods=['POST'])
@@ -71,7 +88,16 @@ def db_upgrade():
   next_upgrade_num = int(req['next_upgrade_num'])
   dbUpgrader = DBUpgrade(corporate_id)
   result = getattr(dbUpgrader, f'upgrade_{next_upgrade_num}')()
-  res = { 'status': result.status_code, 'message': result.message, 'corporate_id': req['corporate_id'], 'next_upgrade_num': get_next_db_upgrade(dbUpgrader, next_upgrade_num) }
+  res = { 'status_code': result.status_code, 'message': result.message, 'corporate_id': req['corporate_id'], 'next_upgrade_num': get_next_db_upgrade(dbUpgrader, next_upgrade_num) }
+  return jsonify(res)
+
+@app.route('/db_upgrade_domain', methods=['POST'])
+def db_upgrade_domain():
+  req = request.form
+  next_upgrade_num = int(req['next_upgrade_num'])
+  dbUpgrader = DBUpgradeDomain()
+  result = getattr(dbUpgrader, f'upgrade_{next_upgrade_num}')()
+  res = { 'status_code': result.status_code, 'message': result.message, 'next_upgrade_num': get_next_db_upgrade(dbUpgrader, next_upgrade_num) }
   return jsonify(res)
 
 @app.route('/get_table_list', methods=['GET'])
@@ -86,7 +112,22 @@ def get_attach_table_list():
   res = { 'table_list': db_upgrade_info.get_db_upgrade_attach(corporate_id) }
   return jsonify(res)
 
-def get_next_db_upgrade(dbUpgrader:DBUpgrade, upgrade_num:int) -> int:
+@app.route('/get_navigation_list', methods=['POST'])
+def get_navigation_list():
+  result = NavigationListUseCase.get_navigation_list()
+  res = { 'corporate_list' : result }
+  return jsonify(res)
+
+@app.route('/update_navigation_is_deleted', methods=['POST'])
+def update_navigation_is_deleted():
+  req = request.form
+  navigation_id = req['navigation_id']
+  is_deleted = req['next_is_deleted']
+  NavigationListUseCase.update_navigation_is_deleted(navigation_id, is_deleted)
+  res = { 'message': '表示・非表示の切り替えが完了しました' }
+  return jsonify(res)
+
+def get_next_db_upgrade(dbUpgrader, upgrade_num:int) -> int:
   next_upgrade_num = upgrade_num+1
   try:
     getattr(dbUpgrader, f'upgrade_{next_upgrade_num}')

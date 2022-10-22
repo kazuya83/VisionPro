@@ -36,17 +36,19 @@ class MasterSetting extends Component {
     }
 
     async getMasterList() {
-        const retData = await CommonFunc.GetData('Master_List');
+        const res = await CommonFunc.PostData('get_master_list', CommonFunc.GetCommonRequestParam());
         this.setState({
-            masterList: retData
+            masterList: res.data
         })
     }
 
     async getMasterDataList(masterId) {
-        const retData = await CommonFunc.GetData(`Master_Data_List?master_id=${masterId}`);
+        const param = CommonFunc.GetCommonRequestParam();
+        param['master_id'] = masterId;
+        const res = await CommonFunc.PostData('get_master_data_list', param);
         this.setState({
             selectedMasterId: masterId,
-            masterDataList: retData
+            masterDataList: res.data
         });
     }
 
@@ -67,15 +69,22 @@ class MasterSetting extends Component {
     }
 
     async addMaster() {
-        const retData = await CommonFunc.PostData('Create_Master', { master_name: this.state.addMasterName, description: this.state.addMasterDescription });
+        const param = CommonFunc.GetCommonRequestParam();
+        param['master_name'] = this.state.addMasterName;
+        param['description'] = this.state.addMasterDescription;
+        const res = await CommonFunc.PostData('add_master', param);
+        if (res.status_code != 200) { alert(res.message); }
         this.switchShowModal();
         this.getMasterList();
     }
 
     async addMasterData() {
         if (this.state.selectedMasterId === 0) { alert('マスタを選択してください');return; }
-        console.log('addMasterData');
-        const retData = await CommonFunc.PostData('Create_Master_Data', { master_id: this.state.selectedMasterId, master_value: this.state.addMasterDataValue });
+        const param = CommonFunc.GetCommonRequestParam();
+        param['master_id'] = this.state.selectedMasterId;
+        param['master_data_value'] = this.state.addMasterDataValue;
+        const res = await CommonFunc.PostData('add_master_data', param);
+        if (res.status_code != 200) { alert(res.message); }
         this.switchShowMasterData();
         this.getMasterDataList(this.state.selectedMasterId);
     }

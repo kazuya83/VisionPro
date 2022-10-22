@@ -1,8 +1,12 @@
 const CORPORATE_LIST_ENDPOINT = 'get_corporate_list';
 const CREATE_CORPORATE_ENDPOINT = 'create_corporate';
 const DB_UPGRADE_ENDPOINT = 'db_upgrade';
+const DOMAIN_DB_UPGRADE_ENDPOINT = 'db_upgrade_domain';
 const GET_ATTACH_TABLE_LIST_ENDPOINT = 'get_attach_table_list';
 const CREATE_CORPORATE_DB_ENDPOINT = 'create_corporate_db';
+
+const STATUS_WARNING = 400;
+const STATIS_FAILED = 500;
 
 const getCorporateList = async () => {
     const param = {};
@@ -29,10 +33,11 @@ const generateCorporateListRowHeaderElement = () => {
     row.className = 'corporate-row-header';
     row.appendChild(generateDiv('','corporate-row-no', 'No'));
     row.appendChild(generateDiv('','corporate-row-id', '企業ID'));
-    row.appendChild(generateDiv('','corporate-row-unique-name', '企業UniqueID'));
     row.appendChild(generateDiv('','corporate-row-name', '企業名'));
+    row.appendChild(generateDiv('','corporate-row-unique-name', '企業UniqueID'));
     row.appendChild(generateDiv('','corporate-row-db-name', 'DB名'));
     row.appendChild(generateDiv('','corporate-row-db-upgrade', 'DB Attach'));
+    row.appendChild(generateDiv('','corporate-row-setting', '設定'));
     return row;
 };
 
@@ -41,12 +46,15 @@ const generateCorporateListRowElement = (no, id, uniqueName, name, dbName) => {
     row.className = 'corporate-row';
     row.appendChild(generateDiv('','corporate-row-no', no));
     row.appendChild(generateDiv('','corporate-row-id', id));
-    row.appendChild(generateDiv('','corporate-row-unique-name', uniqueName));
     row.appendChild(generateDiv('','corporate-row-name', name));
+    row.appendChild(generateDiv('','corporate-row-unique-name', uniqueName));
     row.appendChild(generateDiv('','corporate-row-db-name', dbName ?? '-'));
     const attachDetail = generateDiv('','corporate-row-db-upgrade', '詳細');
     attachDetail.addEventListener('click', () => { showDBUpgradeAttachInfoModal(id); });
     row.appendChild(attachDetail);
+    const setting = generateDiv('','corporate-row-setting', '設定');
+    setting.addEventListener('click', () => {translateCorporateSetting(id, name);});
+    row.appendChild(setting);
     return row;
 };
 
@@ -79,8 +87,8 @@ const showCreateCorporateModal = async () => {
         contentElem.appendChild(formRowContainer);
     };
 
-    createRowForm('corporate_unique_id', '企業UniqueID');
     createRowForm('corporate_name', '企業名');
+    createRowForm('corporate_unique_id', '企業UniqueID');
 
     const footerElem = document.createElement('div');
     footerElem.className = '';
@@ -180,22 +188,25 @@ const showDBUpgradeAttachInfoModal = async (corporateId) => {
     showModal(MODAL_NAME, contentElem, footerElem, '600px', 'calc(100% - 200px)');
 };
 
+const translateCorporateSetting = async (corporateId, corporateName) => {
+    window.location.href = `./corporate_setting?corporate_id=${corporateId}&corporate_name=${corporateName}`;
+};
+
 const createDBAndDbUpgrade = async (corporateId) => {
     const param = { corporate_id: corporateId };
     const upgradeRes = await postConnect(param, CREATE_CORPORATE_DB_ENDPOINT);
-    resetLog();
-    renderLog(upgradeRes.message);
+    renderLog(upgradeRes.message, upgradeRes.status_code);
     await dbUpgrade(corporateId, upgradeRes.next_upgrade_num, false);
 };
 
 const dbUpgrade = async (corporateId, nextUpgradeNum, isReload = true) => {
     const upgradeRes = await postConnect({'corporate_id': corporateId, 'next_upgrade_num': nextUpgradeNum}, DB_UPGRADE_ENDPOINT);
-    renderLog(upgradeRes.message);
+    await renderLog(upgradeRes.message, upgradeRes.status_code);
     if (upgradeRes && upgradeRes.next_upgrade_num > 0) {
         const corporateId = upgradeRes.corporate_id;
         const nextUpgradeNum = upgradeRes.next_upgrade_num;
-        setTimeout(() => {
-            dbUpgrade(corporateId, nextUpgradeNum);
+        setTimeout(async () => {
+            await dbUpgrade(corporateId, nextUpgradeNum);
         }, 50)
         return;
     }
@@ -204,21 +215,42 @@ const dbUpgrade = async (corporateId, nextUpgradeNum, isReload = true) => {
     }  
 };
 
+const domainDbUpgrade = async (nextUpgradeNum) => {
+    const upgradeRes = await postConnect({'next_upgrade_num': nextUpgradeNum}, DOMAIN_DB_UPGRADE_ENDPOINT);
+    console.log(upgradeRes);
+    await renderLog(upgradeRes.message, upgradeRes.status_code);
+    if (upgradeRes && upgradeRes.next_upgrade_num > 0) {
+        const nextUpgradeNum = upgradeRes.next_upgrade_num;
+        setTimeout(async () => {
+            await domainDbUpgrade(nextUpgradeNum);
+        }, 50)
+        return;
+    }
+};
+
 const allUpgrade = async () => {
+    resetLog();
     const corporateList = await getCorporateList();
-    corporateList.forEach(corporate => {
-        const func = async () => {
-            await createDBAndDbUpgrade(corporate.corporate_id);
-        };
-        func();
-    });
+    for (let i = 0; i < corporateList.length; i++) {
+        await createDBAndDbUpgrade(corporateList[i].corporate_id);
+    }
     setCorporateList();
 };
 
-const renderLog = (message) => {
+const renderLog = (message, statusCode=200) => {
     const logContent = document.querySelector('.log-content');
     const newLog = document.createElement('div');
     newLog.textContent = message;
+    let str_color = '#fff';
+    switch(statusCode) {
+        case STATUS_WARNING:
+            str_color = '#ffff41';
+            break;
+        case STATIS_FAILED:
+            str_color = '#ff2e2e';
+            break;
+    }
+    newLog.style.color = str_color;
     logContent.appendChild(newLog);
 
     const _ = document.createElement('div');
@@ -234,6 +266,10 @@ const resetLog = () => {
 
 window.addEventListener('DOMContentLoaded', () => {
     setCorporateList();
+    document.querySelector('#btnDomainUpgrade').addEventListener('click', () => {
+        resetLog();
+        domainDbUpgrade(1);
+    });
     document.querySelector('#btnAllUpgrade').addEventListener('click', () => {
         allUpgrade();
     });

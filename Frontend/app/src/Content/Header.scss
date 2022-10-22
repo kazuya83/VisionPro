@@ -6,6 +6,26 @@ header {
         left: 200px;
     }
 
+    #mectrl_corporate {
+        position: absolute;
+        right: 100px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        max-width: 150px;
+        background: white;
+        color: #3874bb;
+        font-size: 17px;
+        font-weight: bold;
+        text-shadow: 0 0 2px #676767;
+        box-shadow: 1px 1px 5px #5a5a5a;
+        border-radius: 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 15px;
+    }
+
     #mectrl_user {
         width: 40px;
         height: 40px;

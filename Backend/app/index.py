@@ -7,7 +7,10 @@ from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 
 # routers import
-from Routers.Navigation import navigation_router
+from Routers.Navigation import NavigationRouter
+from Routers.Login import LoginRouter
+from Routers.AttributeVariable import AttributeVariableRouter
+from Routers.Master import MasterRouter
 
 # TODO:一時
 import Common.db_common as DB
@@ -17,6 +20,7 @@ g.DB_HOST = os.environ['DB_HOST']
 g.DB_DATABASE = os.environ['DB_DATABASE']
 g.DB_USER = os.environ['DB_USER']
 g.DB_PASS = os.environ['DB_PASS']
+g.ENCRYPT_STR = os.environ['ENCRYPT_STR']
 
 app = FastAPI()
 
@@ -32,7 +36,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(navigation_router.router)
+app.include_router(NavigationRouter.router)
+app.include_router(LoginRouter.router)
+app.include_router(AttributeVariableRouter.router)
+app.include_router(MasterRouter.router)
 
 @app.get("/")
 def Hello():

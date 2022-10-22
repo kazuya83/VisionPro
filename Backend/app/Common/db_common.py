@@ -22,9 +22,15 @@ def execute_select_sql(sql, database_name=None):
     con.close()
     return dict_result
 
-def execute_sql(sql) -> None:
-    con = get_db_connection()
+def execute_sql(sql, database_name=None) -> None:
+    con = get_db_connection(database_name)
     cursor = con.cursor()
     cursor.execute(sql)
     con.commit()
     con.close()
+
+def reset_seq_id(db_name, table_name, seq_name, column_name):
+    sql = f"""
+    SELECT setval('{seq_name}', (SELECT MAX({column_name}) FROM {table_name}));
+    """
+    execute_sql(sql, db_name)

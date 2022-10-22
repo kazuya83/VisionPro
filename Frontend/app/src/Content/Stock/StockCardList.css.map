@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,0BAA0B,CAAC;EACvB,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;CAClB",
-    "sources": [
-        "StockCardList.scss"
-    ],
-    "names": [],
-    "file": "StockCardList.css"
-}
+{"version":3,"sources":["StockCardList.scss","StockCardList.css"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,eAAA;ACCJ","file":"StockCardList.css"}

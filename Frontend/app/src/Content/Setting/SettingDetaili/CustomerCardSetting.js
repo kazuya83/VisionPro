@@ -43,9 +43,14 @@ class CustomerCardSetting extends Component {
     }
 
     async getCustomerVariable() {
-        const data = await CommonFunc.GetData('GetCustomerAttributeList');
+        const res = await CommonFunc.PostData('get_attribute_variable_list', CommonFunc.GetCommonRequestParam());
+        // const data = await CommonFunc.GetData('GetCustomerAttributeList');
+        if (res.status_code != 200) {
+            alert(res.message);
+            return;
+        }
         this.setState({
-            customerVariableList: data
+            customerVariableList: res.data
         });
     }
 

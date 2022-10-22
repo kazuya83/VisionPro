@@ -1,8 +1,4 @@
 .stock-card-list-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-/*# sourceMappingURL=StockCardList.css.map */
+  flex-wrap: wrap;
+}/*# sourceMappingURL=StockCardList.css.map */

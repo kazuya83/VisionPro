@@ -37,7 +37,15 @@ const CommonFunc = {
     },
     ReplaceCommaNumber: (num) => {
         return String(num).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
-    }
+    },
+    GetCommonRequestParam: () => {
+        return {
+            'corporate_id': CommonFunc.GetLocalStrage(Const.localStorage.CORPORATE_ID),
+            'corporate_unique_name': CommonFunc.GetLocalStrage(Const.localStorage.CORPORATE_UNIQUE_NAME),
+            'user_id': CommonFunc.GetLocalStrage(Const.localStorage.USER_ID),
+            'user_name': CommonFunc.GetLocalStrage(Const.localStorage.USER_NAME)
+        };
+    },
 };
 
 export default CommonFunc;

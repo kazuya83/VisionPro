@@ -45,6 +45,14 @@ header {
         position: absolute;
         right: 50px;
     }
+
+    .transition {
+        margin-left: 20px;
+
+        a {
+            font-size: 20px;
+        }
+    }
 }
 
 .content {
@@ -100,7 +108,21 @@ header {
                 text-align: center;
             }
 
+            &-setting {
+                width: 150px;
+                padding: 10px 5px;
+                text-align: center;
+            }
+
             .corporate-row-db-upgrade {
+                color: #1212e9;
+
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+
+            .corporate-row-setting {
                 color: #1212e9;
 
                 &:hover {

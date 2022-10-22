@@ -1,6 +1,3 @@
-from ast import Or
-
-
 class table:
     def __init__(self):
         self.T_CREATE_TABLE_LIST = 'T_Create_Table_List'
@@ -11,6 +8,7 @@ class table:
         self.T_MASTER_LIST = 'T_Master_List'
         self.T_MASTER_DATA_ = 'T_Master_Data'
         self.T_CUSTOMER_LAYOUT = 'T_Customer_Layout'
+        self.T_CUSTOMER_FOLDER = 'T_Customer_Folder'
 
     def get_table_list(self):
         table_list = []

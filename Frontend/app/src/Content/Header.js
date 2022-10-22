@@ -10,6 +10,7 @@ class Header extends Component {
     }
 
     render() {
+        const corporateName = CommonFunc.GetLocalStrage(Const.localStorage.CORPORATE_NAME) ?? '?';
         const userName = CommonFunc.GetLocalStrage(Const.localStorage.USER_NAME);
         const userNameFirstChar = CommonFunc.IsEmpty(userName) ? "?" : userName[0];
         return(
@@ -20,8 +21,11 @@ class Header extends Component {
                     <SearchBox placeholder="Search..." />
                 </div>
                 
+                <div id="mectrl_corporate">
+                    {corporateName}
+                </div>
                 
-                <div id="mectrl_user" onClick={() => {CommonFunc.SetLocalStrage(Const.localStorage.USER_NAME, ''); this.props.reRender();}}>
+                <div id="mectrl_user" onClick={() => {localStorage.clear(); this.props.reRender();}}>
                     {userNameFirstChar}
                 </div>
             </header>

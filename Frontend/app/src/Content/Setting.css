@@ -3,16 +3,10 @@
   height: calc(100% - 60px);
   padding: 30px;
 }
-
 .setting-content-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
 .setting-content-header-tab {
   background-color: #3874bb;
   color: #fff;
@@ -21,30 +15,22 @@
   font-size: 22px;
   font-weight: bold;
   text-align: center;
-  -webkit-box-shadow: 0 0 3px #3c3c3c;
-          box-shadow: 0 0 3px #3c3c3c;
+  box-shadow: 0 0 3px #3c3c3c;
   cursor: pointer;
 }
-
 .setting-content-header-tab:hover {
   background-color: #809ec0;
 }
-
 .setting-content-header-delimiter {
   color: #3874bb;
   font-weight: bold;
   margin: 0 10px;
   font-size: 20px;
 }
-
 .setting-content-body {
   width: auto;
   height: calc(100% - 30px);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   padding-top: 10px;
-}
-/*# sourceMappingURL=Setting.css.map */
+}/*# sourceMappingURL=Setting.css.map */

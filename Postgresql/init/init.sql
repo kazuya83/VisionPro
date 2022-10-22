@@ -9,7 +9,9 @@ CREATE TABLE T_Corporate (
   corporate_unique_name varchar(100) NOT NULL,
   corporate_name varchar(200),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_user_id INTEGER DEFAULT 1,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_user_id INTEGER DEFAULT 1,
   is_deleted BOOL DEFAULT '0',
   PRIMARY KEY (corporate_id)
 );
@@ -20,7 +22,9 @@ CREATE TABLE T_Corporate_DB (
   corporate_id INTEGER NOT NULL,
   db_name varchar(200),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_user_id INTEGER DEFAULT 1,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_user_id INTEGER DEFAULT 1,
   is_deleted BOOL DEFAULT '0',
   PRIMARY KEY (corporate_id, db_name)
 );

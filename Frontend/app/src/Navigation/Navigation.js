@@ -33,7 +33,8 @@ class Navigation extends Component {
     }
 
     async getNavigationList() {
-        const data = await CommonFunc.GetData('Navigation');
+        const response = await CommonFunc.PostData('Navigation', CommonFunc.GetCommonRequestParam());
+        const data = response.data;
         this.setState({
             navigationList: CommonFunc.ConverterJSONpParse(data) ?? []
         });

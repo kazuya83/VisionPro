@@ -2,6 +2,7 @@ import Common.db_common as DB
 import DBUpgrade.db_upgrade_attach_info as db_upgrade_info
 
 STATUS_SUCCESS = 200
+STATUS_WARNING = 400
 STATUS_FAILED = 500
 
 class DBUpgradeResponse:
@@ -10,10 +11,11 @@ class DBUpgradeResponse:
         self.message = message
 
 class DBUpgradeCreateInfo:
-    def __init__(self, db_name:str, table_name:str):
+    def __init__(self, db_name:str, table_name:str, is_domain:bool=False):
         self.db_name = db_name
         self.table_name = table_name
         self.column_list = []
+        self.is_domain = is_domain
 
     def add_column(self, column):
         self.column_list.append(column)
@@ -22,13 +24,19 @@ class DBUpgradeCreateInfo:
         dll = self.generate_dll()
         try:
             DB.execute_sql(dll, self.db_name)
-            db_upgrade_info.add_db_upgrade_attach(self.db_name, self.table_name)
+            if not self.is_domain:
+                db_upgrade_info.add_db_upgrade_attach(self.db_name, self.table_name)
         except Exception as e:
+            error_status_code = STATUS_FAILED
+            error_detail = str(e)
+            if 'already exists' in str(e):
+                error_status_code = STATUS_WARNING
+                error_detail = 'テーブル作成重複エラー'
             error_message = f'''
             TABLE『{self.table_name}』の作成に失敗しました。
-            エラー詳細：{e}
+            エラー詳細：{error_detail}
             '''
-            return DBUpgradeResponse(STATUS_FAILED, error_message)
+            return DBUpgradeResponse(error_status_code, error_message)
         return DBUpgradeResponse(STATUS_SUCCESS, f'TABLE『{self.table_name}』の作成に成功しました。')
 
     def generate_dll(self):
@@ -37,7 +45,9 @@ class DBUpgradeCreateInfo:
             dll += column.get_column_dll()
         dll += f'''
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        created_user_id INTEGER DEFAULT 1,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_user_id INTEGER DEFAULT 1,
         is_deleted BOOL DEFAULT '0'
         {self.get_primary_dll()}
         {self.get_unique_dll()}
@@ -47,15 +57,17 @@ class DBUpgradeCreateInfo:
     
     def get_primary_dll(self):
         primary_column = ''
+        primary_key_name = ''
         for column in self.column_list:
             if not column.is_primary:
                 continue
             if len(primary_column) != 0:
                 primary_column += ','
             primary_column += column.column_name
+            primary_key_name += f'{column.column_name}_'
         if len(primary_column) == 0:
             return ''
-        return f',PRIMARY KEY ({primary_column})'
+        return f',CONSTRAINT {self.table_name}_{primary_key_name}pkey PRIMARY KEY ({primary_column})'
 
     def get_unique_dll(self):
         unique_column = ''
@@ -69,7 +81,7 @@ class DBUpgradeCreateInfo:
             unique_key_name += f'{column.column_name}_'
         if len(unique_column) == 0:
             return ''
-        return f',CONSTRAINT {unique_key_name}unique UNIQUE ({unique_column})'
+        return f',CONSTRAINT {self.table_name}_{unique_key_name}unique UNIQUE ({unique_column})'
 
 class DBUpgradeColumn:
     def __init__(self, column_name:str, type_str:str, is_not_null:bool, is_primary:bool, is_unique:bool=False, default_value:str=None):

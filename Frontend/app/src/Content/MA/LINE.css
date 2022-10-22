@@ -1,20 +1,13 @@
 .line-content {
   width: 100%;
   height: calc(100% - 45px);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding-top: 15px;
 }
-
 .line-content .left-content {
   width: 250px;
   margin-right: 20px;
 }
-
 .line-content .right-content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-/*# sourceMappingURL=LINE.css.map */
+  flex: 1;
+}/*# sourceMappingURL=LINE.css.map */
