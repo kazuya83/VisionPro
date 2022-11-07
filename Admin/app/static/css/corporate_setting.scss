@@ -1,0 +1,39 @@
+.left-content {
+    width: 200px;
+    padding: 20px;
+}
+
+.right-content {
+    flex: 1;
+    padding: 20px;
+
+    .navigation-row {
+        padding: 10px;
+        display: flex;
+
+        .navigation-id {
+            width: 100px;
+        }
+
+        .navigation-name {
+            width: 300px;
+        }
+
+        .navigation-flag {
+            width: 150px;
+        }
+
+        .navigation-switch {
+            width: 100px;
+        }
+
+        &-header {
+            background-color: #7373fc;
+            color: #fff;
+        }
+
+        &-hidden {
+            background-color: #adadad;
+        }
+    }
+}

@@ -1,1 +1,32 @@
-/*# sourceMappingURL=corporate_setting.css.map */
+.left-content {
+  width: 200px;
+  padding: 20px;
+}
+
+.right-content {
+  flex: 1;
+  padding: 20px;
+}
+.right-content .navigation-row {
+  padding: 10px;
+  display: flex;
+}
+.right-content .navigation-row .navigation-id {
+  width: 100px;
+}
+.right-content .navigation-row .navigation-name {
+  width: 300px;
+}
+.right-content .navigation-row .navigation-flag {
+  width: 150px;
+}
+.right-content .navigation-row .navigation-switch {
+  width: 100px;
+}
+.right-content .navigation-row-header {
+  background-color: #7373fc;
+  color: #fff;
+}
+.right-content .navigation-row-hidden {
+  background-color: #adadad;
+}/*# sourceMappingURL=corporate_setting.css.map */

@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"corporate_setting.css"}
+{"version":3,"sources":["corporate_setting.scss","corporate_setting.css"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,aAAA;ACCJ;;ADEA;EACI,OAAA;EACA,aAAA;ACCJ;ADCI;EACI,aAAA;EACA,aAAA;ACCR;ADCQ;EACI,YAAA;ACCZ;ADEQ;EACI,YAAA;ACAZ;ADGQ;EACI,YAAA;ACDZ;ADIQ;EACI,YAAA;ACFZ;ADKQ;EACI,yBAAA;EACA,WAAA;ACHZ;ADMQ;EACI,yBAAA;ACJZ","file":"corporate_setting.css"}

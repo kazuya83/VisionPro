@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask, render_template
 from flask.globals import request
 from flask.json import jsonify
@@ -126,6 +127,20 @@ def update_navigation_is_deleted():
   NavigationListUseCase.update_navigation_is_deleted(navigation_id, is_deleted)
   res = { 'message': '表示・非表示の切り替えが完了しました' }
   return jsonify(res)
+
+@app.route('/get_corporate_navigation_list', methods=['POST'])
+def get_corporate_navigation_list():
+  corporate_id = request.form['corporate_id']
+  result = NavigationListUseCase.get_corporate_navigaiton_list(corporate_id)
+  res = { 'corporate_list': result }
+  return jsonify(res)
+
+@app.route('/update_corporate_navigation_is_deleted', methods=['POST'])
+def update_corporate_navigation_is_deleted():
+  corporate_id = request.form['corporate_id']
+  navigation_id = request.form['navigation_id']
+  is_deleted = request.form['is_deleted']
+  NavigationListUseCase.update_corporate_navigation_is_deleted(corporate_id, navigation_id, is_deleted)
 
 def get_next_db_upgrade(dbUpgrader, upgrade_num:int) -> int:
   next_upgrade_num = upgrade_num+1
